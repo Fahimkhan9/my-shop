@@ -1,11 +1,4 @@
-const { GET_PRODUCT_BY_CATEGORY, SET_PRODUCT_DATA } = require("./actionTypes");
-
-const getProductByCategory = (category) => {
-  return {
-    type: GET_PRODUCT_BY_CATEGORY,
-    category,
-  };
-};
+const { SET_PRODUCT_DATA, ADD_TO_CART } = require("./actionTypes");
 
 const setProductData = (data) => {
   return {
@@ -13,5 +6,11 @@ const setProductData = (data) => {
     payload: data,
   };
 };
+const addToCart = (product) => {
+  return {
+    type: ADD_TO_CART,
+    payload: product,
+  };
+};
 
-export { getProductByCategory, setProductData };
+export { setProductData, addToCart };

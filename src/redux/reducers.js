@@ -1,23 +1,24 @@
 import { setProductData } from "./action";
 
-const { GET_PRODUCT_BY_CATEGORY, SET_PRODUCT_DATA } = require("./actionTypes");
+const { SET_PRODUCT_DATA, ADD_TO_CART } = require("./actionTypes");
 
 const shopstate = {
   productdata: [],
+  cart: [],
 };
 
 const productReducer = (state = shopstate, action) => {
   switch (action.type) {
-    case GET_PRODUCT_BY_CATEGORY: {
-      return {
-        ...state,
-        productdata: [state.productdata, { example: "example" }],
-      };
-    }
     case SET_PRODUCT_DATA: {
       return {
         ...state,
         productdata: action.payload,
+      };
+    }
+    case ADD_TO_CART: {
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
       };
     }
 
