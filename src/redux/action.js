@@ -1,4 +1,4 @@
-const { GET_PRODUCT_BY_CATEGORY } = require("./actionTypes");
+const { GET_PRODUCT_BY_CATEGORY, SET_PRODUCT_DATA } = require("./actionTypes");
 
 const getProductByCategory = (category) => {
   return {
@@ -6,4 +6,12 @@ const getProductByCategory = (category) => {
     category,
   };
 };
-export { getProductByCategory };
+
+const setProductData = (data) => {
+  return {
+    type: SET_PRODUCT_DATA,
+    payload: data,
+  };
+};
+
+export { getProductByCategory, setProductData };
