@@ -7,7 +7,7 @@ import FoodCard from "./FoodCard";
 const Food = () => {
   const [category, setCategory] = useState("breakfast");
   const productData = useSelector((state) => state.productReducer.productdata);
-  const cartdata = useSelector((state) => state.productReducer.cart);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadProductData("breakfast"));
@@ -44,10 +44,6 @@ const Food = () => {
             </Col>
           ))}
         </Row>
-
-        <Button className="p-4 btn-fixed-bottom-left">
-          Cart{cartdata.length}
-        </Button>
       </Container>
     </section>
   );

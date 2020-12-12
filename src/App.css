@@ -22,4 +22,5 @@ li {
   border-bottom-right-radius: 20%;
   border: 1px solid grey;
   background-color: grey;
+  z-index: 1;
 }

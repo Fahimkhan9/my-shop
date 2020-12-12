@@ -1,5 +1,6 @@
 import { Card, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { addToCart } from "../../redux/action";
 
 const FoodCard = (props) => {
@@ -11,6 +12,7 @@ const FoodCard = (props) => {
     desoproduct,
     imgofproduct,
     price,
+    _id,
   } = props.pdata;
   props.pdata.quantity = 1;
 
@@ -27,6 +29,9 @@ const FoodCard = (props) => {
           <b>${price}</b>
         </Card.Title>
         <Button onClick={handleaddtocart}>Add to cart</Button>
+        <Link to={`/product/${_id}`}>
+          <Button>description</Button>
+        </Link>
       </Card.Body>
     </Card>
   );
