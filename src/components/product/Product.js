@@ -34,6 +34,7 @@ const Product = () => {
               repellendus, rem velit doloremque itaque reprehenderit veniam.
               Quibusdam, dolorum accusantium!
             </p>
+            <p>Category : {category}</p>
             <h4>Price: {price}</h4>
             <Button onClick={handleaddtocart}>Add to Cart</Button>
           </Col>

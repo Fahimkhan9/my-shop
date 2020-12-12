@@ -33,7 +33,7 @@ const productReducer = (state = shopstate, action) => {
         action.payload.quantity = 1;
         newCart = [...state.cart, action.payload];
       }
-      console.log(newCart);
+      // console.log(newCart);
 
       return {
         ...state,

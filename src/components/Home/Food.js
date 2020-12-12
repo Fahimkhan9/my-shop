@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { loadProductData } from "../../redux/reducers";
 import FoodCard from "./FoodCard";
@@ -39,8 +39,8 @@ const Food = () => {
         </div>
         <Row>
           {productData.map((pdata) => (
-            <Col md={4}>
-              <FoodCard pdata={pdata} key={pdata._id} />
+            <Col md={4} key={pdata.id}>
+              <FoodCard pdata={pdata} />
             </Col>
           ))}
         </Row>

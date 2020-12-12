@@ -1,7 +1,7 @@
 import "./App.css";
 import Food from "./components/Home/Food";
 import Navigation from "./components/Shared/Navigation";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import Product from "./components/product/Product";
 import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
@@ -11,9 +11,11 @@ function App() {
   return (
     <Router>
       <Navigation />
-      <Button className="p-4 btn-fixed-bottom-left">
-        Cart{cartdata.length}
-      </Button>
+      <Link to="/checkout">
+        <Button className="p-4 btn-fixed-bottom-left">
+          Cart{cartdata.length}
+        </Button>
+      </Link>
 
       <Switch>
         <Route exact path="/">
@@ -22,6 +24,7 @@ function App() {
         <Route exact path="/product/:id">
           <Product />
         </Route>
+        <Route exact path="/checkout"></Route>
       </Switch>
     </Router>
   );
