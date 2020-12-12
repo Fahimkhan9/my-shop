@@ -16,9 +16,29 @@ const productReducer = (state = shopstate, action) => {
       };
     }
     case ADD_TO_CART: {
+      const sameproduct = state.cart.find(
+        (pd) => pd._id === action.payload._id
+      );
+      let count = 1;
+      let newCart;
+      if (sameproduct) {
+        console.log("wait");
+        count = parseInt(sameproduct.quantity) + parseInt(1);
+        sameproduct.quantity = count;
+        const others = state.cart.filter((pd) => pd._id !== action.payload._id);
+        newCart = [...others, sameproduct];
+        // console.log(sameproduct);
+      } else {
+        console.log("add");
+        action.payload.quantity = 1;
+        newCart = [...state.cart, action.payload];
+      }
+      console.log(newCart);
+
       return {
         ...state,
-        cart: [...state.cart, action.payload],
+
+        cart: newCart,
       };
     }
 

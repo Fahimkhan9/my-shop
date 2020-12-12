@@ -4,7 +4,7 @@ import { addToCart } from "../../redux/action";
 
 const FoodCard = (props) => {
   const dispatch = useDispatch();
-  console.log(props);
+  // console.log(props);
   const {
     category,
     nameofproduct,
@@ -12,6 +12,7 @@ const FoodCard = (props) => {
     imgofproduct,
     price,
   } = props.pdata;
+  props.pdata.quantity = 1;
 
   const handleaddtocart = () => {
     dispatch(addToCart(props.pdata));
