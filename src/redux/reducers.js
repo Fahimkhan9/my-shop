@@ -1,6 +1,13 @@
 import { setProductData } from "./action";
 
-const { SET_PRODUCT_DATA, ADD_TO_CART } = require("./actionTypes");
+const {
+  SET_PRODUCT_DATA,
+  ADD_TO_CART,
+  CHANGE_PRODUCT_QUANTITY,
+  INCREMENT,
+  DECREMENT,
+  REMOVE_PRODUCT_FROM_CART,
+} = require("./actionTypes");
 
 const shopstate = {
   productdata: [],
@@ -39,6 +46,28 @@ const productReducer = (state = shopstate, action) => {
         ...state,
 
         cart: newCart,
+      };
+    }
+    case CHANGE_PRODUCT_QUANTITY: {
+      const findProduct = state.cart.find((pd) => pd._id === action.id);
+      if (action.changetype === INCREMENT) {
+        findProduct.quantity = findProduct.quantity + 1;
+      }
+      if (action.changetype === DECREMENT) {
+        if (findProduct.quantity > 1) {
+          findProduct.quantity = findProduct.quantity - 1;
+        }
+      }
+      return {
+        ...state,
+        cart: [...state.cart],
+      };
+    }
+    case REMOVE_PRODUCT_FROM_CART: {
+      const filter = state.cart.filter((pd) => pd._id !== action.id);
+      return {
+        ...state,
+        cart: [filter],
       };
     }
 

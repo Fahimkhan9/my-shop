@@ -5,6 +5,7 @@ import CheckoutCard from "./CheckoutCard";
 const Checkout = () => {
   const cart = useSelector((state) => state.productReducer.cart);
   console.log(cart);
+
   return (
     <div>
       <Container>
