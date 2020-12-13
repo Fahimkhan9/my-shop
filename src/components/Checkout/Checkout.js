@@ -1,5 +1,6 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import CheckoutCard from "./CheckoutCard";
 
 const Checkout = () => {
   const cart = useSelector((state) => state.productReducer.cart);
@@ -9,11 +10,19 @@ const Checkout = () => {
       <Container>
         <Row>
           <Col md={6}>
-            {/* {cartdata.map((cdata) => (
-              <li>{cdata.price}</li>
-            ))} */}
+            {cart.map((cdata) => (
+              <CheckoutCard cdata={cdata} />
+            ))}
           </Col>
-          <Col md={6}></Col>
+          <Col md={6}>
+            <ListGroup>
+              <ListGroup.Item>Cras justo odio</ListGroup.Item>
+              <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+              <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+              <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+              <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+            </ListGroup>
+          </Col>
         </Row>
       </Container>
     </div>

@@ -22,12 +22,12 @@ const productReducer = (state = shopstate, action) => {
       let count = 1;
       let newCart;
       if (sameproduct) {
-        console.log("wait");
         count = parseInt(sameproduct.quantity) + parseInt(1);
         sameproduct.quantity = count;
         const others = state.cart.filter((pd) => pd._id !== action.payload._id);
         newCart = [...others, sameproduct];
         // console.log(sameproduct);
+        console.log("wait", sameproduct.quantity);
       } else {
         console.log("add");
         action.payload.quantity = 1;

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import Product from "./components/product/Product";
 import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import Checkout from "./components/Checkout/Checkout";
 function App() {
   const cartdata = useSelector((state) => state.productReducer.cart);
 
@@ -24,7 +25,9 @@ function App() {
         <Route exact path="/product/:id">
           <Product />
         </Route>
-        <Route exact path="/checkout"></Route>
+        <Route exact path="/checkout">
+          <Checkout />
+        </Route>
       </Switch>
     </Router>
   );
