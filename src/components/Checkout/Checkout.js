@@ -4,12 +4,25 @@ import CheckoutCard from "./CheckoutCard";
 
 const Checkout = () => {
   const cart = useSelector((state) => state.productReducer.cart);
-  console.log(cart);
+  // console.log(cart);
 
+  let producttotal =  0 
+  let deliveryfee = 5
+
+  for (let i = 0; i < cart.length; i++) {
+    const product = cart[i];
+    producttotal  =  producttotal + product.price * product.quantity || 1
+    
+    
+  }
+  if(producttotal >= 20){
+    deliveryfee = 0
+  }
+  let total = producttotal + deliveryfee
   return (
-    <div>
+    <div className='pt-5'>
       <Container>
-        <Row>
+        <Row className='d-flex align-items-center'>
           <Col md={6}>
             {cart.map((cdata) => (
               <CheckoutCard cdata={cdata} />
@@ -17,12 +30,24 @@ const Checkout = () => {
           </Col>
           <Col md={6}>
             <ListGroup>
-              <ListGroup.Item>Cras justo odio</ListGroup.Item>
-              <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-              <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-              <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-              <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+              <ListGroup.Item className='d-flex justify-content-between'>
+                <span >Product Total </span>
+                <span >${producttotal} </span>
+
+              </ListGroup.Item>
+              <ListGroup.Item className='d-flex justify-content-between'>
+                <span >Delivery Fee </span>
+                <span >${deliveryfee} </span>
+
+              </ListGroup.Item>
+              <ListGroup.Item className='d-flex justify-content-between'>
+                <span > Total </span>
+                <span >${total} </span>
+
+              </ListGroup.Item>
+       
             </ListGroup>
+            <Button variant='primary' block className='mt-2'>Go To Payment</Button>
           </Col>
         </Row>
       </Container>

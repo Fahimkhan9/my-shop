@@ -8,6 +8,7 @@ import {
 
 const CheckoutCard = (props) => {
   const { imgofproduct, nameofproduct, price, quantity, _id } = props.cdata;
+  // console.log(props.cdata);
   const dispatch = useDispatch();
   const handleProductQuantity = (changetype, id) => {
     dispatch(changeProductQuantity(changetype, id));

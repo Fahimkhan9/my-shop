@@ -67,7 +67,7 @@ const productReducer = (state = shopstate, action) => {
       const filter = state.cart.filter((pd) => pd._id !== action.id);
       return {
         ...state,
-        cart: [filter],
+        cart: [...filter],
       };
     }
 
