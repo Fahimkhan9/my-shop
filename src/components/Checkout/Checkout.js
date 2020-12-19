@@ -1,7 +1,7 @@
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import CheckoutCard from "./CheckoutCard";
-
+import {Link} from 'react-router-dom'
 const Checkout = () => {
   const cart = useSelector((state) => state.productReducer.cart);
   // console.log(cart);
@@ -47,7 +47,10 @@ const Checkout = () => {
               </ListGroup.Item>
        
             </ListGroup>
+            <Link to='/payment'>
             <Button variant='primary' block className='mt-2'>Go To Payment</Button>
+            </Link>
+           
           </Col>
         </Row>
       </Container>
