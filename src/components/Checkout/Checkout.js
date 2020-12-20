@@ -25,7 +25,7 @@ const Checkout = () => {
         <Row className='d-flex align-items-center'>
           <Col md={6}>
             {cart.map((cdata) => (
-              <CheckoutCard cdata={cdata} />
+              <CheckoutCard key={cdata._id} cdata={cdata} />
             ))}
           </Col>
           <Col md={6}>

@@ -7,6 +7,7 @@ import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import Checkout from "./components/Checkout/Checkout";
 import Payment from "./components/payment/Payment";
+import Signup from "./components/Auth/Signup";
 function App() {
   const cartdata = useSelector((state) => state.productReducer.cart);
 
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route exact path='/payment'>
          <Payment/>
+        </Route>
+        <Route exact path='/signup'>
+<Signup/>
         </Route>
       </Switch>
     </Router>

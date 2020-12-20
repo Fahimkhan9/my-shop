@@ -1,0 +1,22 @@
+.signup{
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+.signup_form{
+    width: 50%;
+ padding: 50px;
+        border-top-left-radius: 20%;
+        border-bottom-right-radius: 20%;
+        border: 1px solid ;
+        border-color: #FFFFFF;
+        box-shadow: rgba(16, 60, 105, 0.12) 0px 16px 32px 30px;
+      
+}
+@media (max-width:756px){
+.signup_form{
+    width: 100%;
+ align-items: stretch;
+}
+}

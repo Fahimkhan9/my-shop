@@ -1,5 +1,5 @@
 import { Form, FormControl, Nav, Navbar, Button } from "react-bootstrap";
-
+import {Link}  from 'react-router-dom'
 import logo from "../../images/logo2.png";
 
 const Navigation = () => {
@@ -14,10 +14,11 @@ const Navigation = () => {
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#link">Link</Nav.Link>
         </Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-success">Search</Button>
-        </Form>
+        <Link to='/signup'> <Button
+    >Signup</Button></Link>
+   
+   <Link to='/signup'> <Button
+    >Signup</Button></Link>
       </Navbar.Collapse>
     </Navbar>
   );
